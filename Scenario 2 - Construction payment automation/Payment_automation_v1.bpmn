@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:bioc="http://bpmn.io/schema/bpmn/biocolor/1.0" xmlns:color="http://www.omg.org/spec/BPMN/non-normative/color/1.0" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_1cjur1d" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.8.0" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.1.0">
+  <bpmn:collaboration id="Collaboration_05ccrg0">
+    <bpmn:participant id="Participant_Promisee" name="Promisee" processRef="Process_Promisee" />
+    <bpmn:participant id="Participant_Validator" name="Validator" processRef="Process_Validator" />
+    <bpmn:participant id="Participant_Promisor" name="Promisor" processRef="Process_Promisor" />
+    <bpmn:messageFlow id="Flow_00wmuzl" sourceRef="Issue_Payment_Certificate" targetRef="Finalize_Payment" />
+    <bpmn:messageFlow id="Flow_00b5dyl" sourceRef="Submit_Payment_Application" targetRef="Confirm_Qualified_Work_Quantities" />
+  </bpmn:collaboration>
+  <bpmn:process id="Process_Promisee" isExecutable="false">
+    <bpmn:startEvent id="StartEvent">
+      <bpmn:outgoing>Flow_0av7vye</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:sequenceFlow id="Flow_0av7vye" sourceRef="StartEvent" targetRef="Submit_Payment_Application" />
+    <bpmn:task id="Submit_Payment_Application" name="Submit Payment Application">
+      <bpmn:incoming>Flow_0av7vye</bpmn:incoming>
+    </bpmn:task>
+  </bpmn:process>
+  <bpmn:process id="Process_Validator" isExecutable="false">
+    <bpmn:task id="Confirm_Qualified_Work_Quantities" name="Confirm Qualified Work Quantities">
+      <bpmn:outgoing>Flow_1mrvxuu</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Issue_Payment_Valuation" name="Issue Payment Valuation">
+      <bpmn:incoming>Flow_1mrvxuu</bpmn:incoming>
+      <bpmn:outgoing>Flow_0k9tfjl</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:task id="Issue_Payment_Certificate" name="Issue Payment Certificate">
+      <bpmn:incoming>Flow_0k9tfjl</bpmn:incoming>
+    </bpmn:task>
+    <bpmn:sequenceFlow id="Flow_1mrvxuu" sourceRef="Confirm_Qualified_Work_Quantities" targetRef="Issue_Payment_Valuation" />
+    <bpmn:sequenceFlow id="Flow_0k9tfjl" sourceRef="Issue_Payment_Valuation" targetRef="Issue_Payment_Certificate" />
+  </bpmn:process>
+  <bpmn:process id="Process_Promisor" isExecutable="false">
+    <bpmn:task id="Finalize_Payment" name="Finalize Payment">
+      <bpmn:outgoing>Flow_0omgo8k</bpmn:outgoing>
+    </bpmn:task>
+    <bpmn:endEvent id="EndEvent">
+      <bpmn:incoming>Flow_0omgo8k</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_0omgo8k" sourceRef="Finalize_Payment" targetRef="EndEvent" />
+  </bpmn:process>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_05ccrg0">
+      <bpmndi:BPMNShape id="BPMNShape_1gogvrs" bpmnElement="Participant_Promisee" isHorizontal="true" bioc:stroke="#1e88e5" bioc:fill="#bbdefb" color:background-color="#bbdefb" color:border-color="#1e88e5">
+        <dc:Bounds x="160" y="100" width="641" height="120" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_15nu9dv" bpmnElement="StartEvent">
+        <dc:Bounds x="210" y="142" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0je9cyv" bpmnElement="Submit_Payment_Application">
+        <dc:Bounds x="300" y="120" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_10mchll" bpmnElement="Flow_0av7vye">
+        <di:waypoint x="246" y="160" />
+        <di:waypoint x="300" y="160" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_1r0jdoq" bpmnElement="Participant_Validator" isHorizontal="true" bioc:stroke="#fb8c00" bioc:fill="#ffe0b2" color:background-color="#ffe0b2" color:border-color="#fb8c00">
+        <dc:Bounds x="160" y="240" width="641" height="120" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1xwt27e" bpmnElement="Confirm_Qualified_Work_Quantities">
+        <dc:Bounds x="291" y="260" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0z3o6f2" bpmnElement="Issue_Payment_Valuation">
+        <dc:Bounds x="441" y="260" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0wx540z" bpmnElement="Issue_Payment_Certificate">
+        <dc:Bounds x="591" y="260" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_0uav9hc" bpmnElement="Flow_1mrvxuu">
+        <di:waypoint x="391" y="300" />
+        <di:waypoint x="441" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1ic46n2" bpmnElement="Flow_0k9tfjl">
+        <di:waypoint x="541" y="300" />
+        <di:waypoint x="591" y="300" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_0tmw70p" bpmnElement="Participant_Promisor" isHorizontal="true" bioc:stroke="#8e24aa" bioc:fill="#e1bee7" color:background-color="#e1bee7" color:border-color="#8e24aa">
+        <dc:Bounds x="160" y="380" width="641" height="110" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0tp7liw" bpmnElement="Finalize_Payment">
+        <dc:Bounds x="591" y="400" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0cj4zye" bpmnElement="EndEvent">
+        <dc:Bounds x="743" y="422" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="BPMNEdge_04yfhd3" bpmnElement="Flow_0omgo8k">
+        <di:waypoint x="691" y="440" />
+        <di:waypoint x="743" y="440" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1haem3i" bpmnElement="Flow_00wmuzl">
+        <di:waypoint x="641" y="340" />
+        <di:waypoint x="641" y="400" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_00b5dyl_di" bpmnElement="Flow_00b5dyl">
+        <di:waypoint x="350" y="200" />
+        <di:waypoint x="350" y="260" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
