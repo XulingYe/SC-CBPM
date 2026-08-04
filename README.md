@@ -31,7 +31,7 @@ To reproduce the validation scenarios:
 
 If you use this code in your research, please cite it as follows:
 
-**Xuling Ye, Xingyu Tao, Jack C.P. Cheng, Markus König**, *Cascaded and Upgradable Smart Contracts for Blockchain-Aided Construction Business Process Management*, 2025. Journal: Automation in Construction (2nd Revision).
+**Xuling Ye, Xingyu Tao, Jack C.P. Cheng, Markus König**, *Cascaded and Upgradable Smart Contracts for Blockchain-Aided Construction Business Process Management*, Automation in Construction, Volume 182, 2026, 106695, ISSN 0926-5805, https://doi.org/10.1016/j.autcon.2025.106695.
 
 ## License
 
