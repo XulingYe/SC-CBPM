@@ -37,14 +37,14 @@ If you use this code in your research, please cite it as follows:
 
 This project is licensed under a **Non-Commercial License** (adapted from MIT License). You are free to use, modify, and distribute the software, but **only for non-commercial purposes**. Commercial use is prohibited, including selling, sublicensing, or incorporating this software into proprietary software.
 
-* Copyright (c) 2025 Xuling Ye
+* Copyright (c) 2026 Xuling Ye
 * For more details, see the full license section below.
 
 ### Full License Text
 
 Non-Commercial License (adapted from MIT License)
 
-Copyright (c) 2025 Xuling Ye
+Copyright (c) 2026 Xuling Ye
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
